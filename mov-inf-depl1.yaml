@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mov-inf-app
+spec:
+  selector:
+    matchLabels:
+      app: mov-inf-app
+  template:
+    metadata:
+      labels:
+        app: mov-inf-app
+    spec:
+      containers:
+      - name: mov-inf-app
+        image: rohitaggarwal88/movie-info-service:0.0.4-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4546
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: movie-info-service
+spec:
+  selector:
+    app: mov-inf-app
+  ports:
+  - port: 80
+    targetPort: 4546

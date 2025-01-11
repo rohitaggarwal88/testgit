@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rat-data-app
+spec:
+  selector:
+    matchLabels:
+      app: rat-data-app
+  template:
+    metadata:
+      labels:
+        app: rat-data-app
+    spec:
+      containers:
+      - name: rat-data-app
+        image: rohitaggarwal88/rating-data-service:0.0.4-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4547
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rating-data-service
+spec:
+  selector:
+    app: rat-data-app
+  ports:
+  - port: 80
+    targetPort: 4547
+
