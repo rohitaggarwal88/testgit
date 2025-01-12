@@ -47,37 +47,37 @@ jobs:
           MAVEN_USERNAME: ${{secrets.DOCKER_USERNAME}}
           MAVEN_PASSWORD: ${{secrets.DOCKER_PASSWRD}}
 
-    - name: Build and push user service
+    - name: Build and push rating-data service
       run: mvn package dockerfile:push --file rating-data-service/pom.xml
       env:
           MAVEN_USERNAME: ${{secrets.DOCKER_USERNAME}}
           MAVEN_PASSWORD: ${{secrets.DOCKER_PASSWRD}}
 
-    - name: Build and push user service
+    - name: Build and push movie-info service
       run: mvn package dockerfile:push --file movie-info-service/pom.xml
       env:
           MAVEN_USERNAME: ${{secrets.DOCKER_USERNAME}}
           MAVEN_PASSWORD: ${{secrets.DOCKER_PASSWRD}}
 
-    - name: Build and push user service
+    - name: Build and push movie-calling service
       run: mvn package dockerfile:push --file movie-calling-service/pom.xml
       env:
           MAVEN_USERNAME: ${{secrets.DOCKER_USERNAME}}
           MAVEN_PASSWORD: ${{secrets.DOCKER_PASSWRD}}
 
-    - name: Build and push user service
+    - name: Build and push conf-ser service
       run: mvn package dockerfile:push --file conf-ser/pom.xml
       env:
           MAVEN_USERNAME: ${{secrets.DOCKER_USERNAME}}
           MAVEN_PASSWORD: ${{secrets.DOCKER_PASSWRD}}
 
-    - name: Build and push user service
+    - name: Build and push api-gateway service
       run: mvn package dockerfile:push --file api-gateway-service/pom.xml
       env:
           MAVEN_USERNAME: ${{secrets.DOCKER_USERNAME}}
           MAVEN_PASSWORD: ${{secrets.DOCKER_PASSWRD}}
 
-    - name: Build and push user service
+    - name: Build and push eureka-server service
       run: mvn package dockerfile:push --file eureka-server-service/pom.xml
       env:
           MAVEN_USERNAME: ${{secrets.DOCKER_USERNAME}}
